@@ -20,7 +20,7 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <a href="ee" className="btn btn-ghost normal-case text-xl">
+            <a href="ee" className="btn btn-ghost normal-case text-4xl">
               Blog
             </a>
           </div>
