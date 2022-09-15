@@ -12,6 +12,11 @@ const Home = () => {
   return (
     <div className="container mx-auto px-6 my-32">
       <h2 className="text-2xl font-semibold">All Blogs...</h2>
+      {blogs.map((blog) => (
+        <div>
+          <h1>{blog.title}</h1>
+        </div>
+      ))}
     </div>
   );
 };
