@@ -4,7 +4,7 @@ import { FiMenu } from "react-icons/fi";
 const Header = () => {
   return (
     <div>
-      <nav className="bg-white px-2 sm:px-4 py-2.5 rounded text-primary shadow-[0px_4px_50px_rgba(0,0,0,0.1)]">
+      <nav className="bg-white px-2 sm:px-4 py-2.5 text-primary shadow-xl">
         <div className="navbar container mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
