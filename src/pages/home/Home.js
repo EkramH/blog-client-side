@@ -20,18 +20,25 @@ const Home = () => {
                 <img
                   src={blog.imageURL}
                   alt="Album"
-                  className="h-72 shadow-[0px_0px_20px_-5px_rgba(0,0,0,0.2)]"
+                  className="sm:h-72 shadow-[0px_0px_20px_-5px_rgba(0,0,0,0.2)] rounded-md"
                 />
               </figure>
-              <div className="card-body">
-                <h2 className="card-title text-2xl text-blueYonder">
+              <div className="card-body p-0 sm:p-8">
+                <h2 className="card-title md:text-2xl text-lg text-blueYonder">
                   {blog.title}
                 </h2>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 text-blueYonder">
                   <BsArrowReturnRight />
-                  <h5 className="text-base">{blog.admin}</h5>
+                  <h5 className="md:text-base text-sm">{blog.admin}</h5>
                 </div>
-                <p className="text-lg mt-5">{blog.blog.slice(0, 200)}</p>
+                <p className="md:text-lg text-base mt-5">
+                  {blog.blog.length < 200
+                    ? blog.blog.length
+                    : blog.blog.slice(0, 200)}
+                  <span className="btn btn-xs font-medium bg-blackCoral mx-1">
+                    ... Read More
+                  </span>
+                </p>
               </div>
             </div>
           </div>
