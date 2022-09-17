@@ -17,10 +17,13 @@ const Header = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <p>Home</p>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <p>About</p>
+                  <Link to="video">Video</Link>
+                </li>
+                <li>
+                  <Link to="about">About</Link>
                 </li>
               </ul>
             </div>
@@ -31,13 +34,13 @@ const Header = () => {
           <div className="navbar-center text-blackCoral hidden md:flex">
             <ul className="menu menu-horizontal p-0 text-lg">
               <li>
-                <p>Home</p>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <p>Videos</p>
+                <Link to="video">Video</Link>
               </li>
               <li>
-                <p>About</p>
+                <Link to="about">About</Link>
               </li>
             </ul>
           </div>
