@@ -1,5 +1,6 @@
 import React from "react";
 import { FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -23,14 +24,17 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <a href="ee" className="btn btn-ghost normal-case text-4xl">
+            <Link to="/" className="btn btn-ghost normal-case text-4xl">
               Blog
-            </a>
+            </Link>
           </div>
           <div className="navbar-center text-blackCoral hidden md:flex">
-            <ul className="menu menu-horizontal p-0">
+            <ul className="menu menu-horizontal p-0 text-lg">
               <li>
                 <p>Home</p>
+              </li>
+              <li>
+                <p>Videos</p>
               </li>
               <li>
                 <p>About</p>
