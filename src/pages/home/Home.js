@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BsArrowReturnRight } from "react-icons/bs";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -26,7 +27,10 @@ const Home = () => {
                 <h2 className="card-title text-2xl text-blueYonder">
                   {blog.title}
                 </h2>
-                <h5 className="text-base">{blog.admin}</h5>
+                <div className="flex items-center gap-4">
+                  <BsArrowReturnRight />
+                  <h5 className="text-base">{blog.admin}</h5>
+                </div>
                 <p className="text-lg mt-5">{blog.blog.slice(0, 200)}</p>
               </div>
             </div>

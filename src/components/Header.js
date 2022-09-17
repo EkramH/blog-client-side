@@ -4,14 +4,17 @@ import { FiMenu } from "react-icons/fi";
 const Header = () => {
   return (
     <div>
-      <nav className="bg-white px-2 sm:px-4 py-2.5 text-primary shadow-xl">
+      <nav className="bg-beauBlue px-2 sm:px-4 py-2.5 shadow-xl">
         <div className="navbar container mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
-              <label className="btn btn-ghost lg:hidden">
+              <label tabIndex={1} className="btn btn-ghost lg:hidden">
                 <FiMenu className="h-5 w-5" />
               </label>
-              <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              <ul
+                tabIndex={1}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              >
                 <li>
                   <p>Home</p>
                 </li>
@@ -24,7 +27,7 @@ const Header = () => {
               Blog
             </a>
           </div>
-          <div className="navbar-center hidden md:flex">
+          <div className="navbar-center text-blackCoral hidden md:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
                 <p>Home</p>
@@ -43,7 +46,7 @@ const Header = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-primary text-white rounded-box w-52"
+                className="mt-3 p-2  menu menu-compact dropdown-content bg-blueYonder text-ghostWhite rounded-box w-52"
               >
                 <li>
                   <a href="ee" className="justify-between">
