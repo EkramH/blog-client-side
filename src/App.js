@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/home/Home";
 import About from "./pages/About";
 import Video from "./pages/Video";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="video" element={<Video />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </div>
   );
