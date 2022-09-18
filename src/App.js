@@ -9,6 +9,7 @@ import Register from "./pages/login/Register";
 import BlogDetails from "./pages/blog/BlogDetails";
 
 import { createContext, useState } from "react";
+import RequireAuth from "./pages/login/RequireAuth";
 
 export const BlogContext = createContext();
 
@@ -20,7 +21,14 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route
+            path="/blog/:id"
+            element={
+              <RequireAuth>
+                <BlogDetails />
+              </RequireAuth>
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/video" element={<Video />} />
           <Route path="/login" element={<Login />} />
