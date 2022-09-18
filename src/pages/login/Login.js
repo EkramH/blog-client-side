@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -11,8 +11,20 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
+  // Google Login
   const [signInWithGoogle, gUser, gLoading, GError] = useSignInWithGoogle(auth);
 
+  // Requre Authentication
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (gUser ) {
+      navigate(from, { replace: true });
+    }
+  }, [from, gUser, navigate]);
+
+  // Getting Login data
   const onSubmit = (data) => {
     console.log(data);
   };

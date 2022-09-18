@@ -8,8 +8,6 @@ const BlogDetails = () => {
 
   const blog = blogs.find((blog) => blog._id === id);
 
-  console.log(blog);
-
   return (
     <div className="">
       <div className="container mx-auto py-14 flex flex-col items-center">
