@@ -1,8 +1,17 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import auth from "../firebase.init";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
+
   return (
     <div>
       <nav className="bg-beauBlue px-2 sm:px-4 py-2.5 shadow-xl">
@@ -42,36 +51,39 @@ const Header = () => {
               <li>
                 <Link to="about">About</Link>
               </li>
-              <li>
-                <Link to="login">Login</Link>
-              </li>
             </ul>
           </div>
           <div className="navbar-end">
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" alt="" />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="mt-3 p-2  menu menu-compact dropdown-content bg-blueYonder text-ghostWhite rounded-box w-52"
-              >
-                <li>
-                  <a href="ee" className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <p>Settings</p>
-                </li>
-                <li>
-                  <p>Logout</p>
-                </li>
-              </ul>
-            </div>
+            {user ? (
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="https://placeimg.com/80/80/people" alt="" />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 p-2  menu menu-compact dropdown-content bg-blueYonder text-ghostWhite rounded-box w-52"
+                >
+                  <li>
+                    <a href="ee" className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li>
+                    <p>Settings</p>
+                  </li>
+                  <li>
+                    <p onClick={logout}>Logout</p>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="btn bg-blackCoral">Login</button>
+              </Link>
+            )}
           </div>
         </div>
       </nav>
