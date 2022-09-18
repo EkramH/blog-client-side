@@ -12,7 +12,7 @@ const Home = () => {
     fetch("data.json")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
-  }, []);
+  }, [setBlogs]);
 
   return (
     <div>
