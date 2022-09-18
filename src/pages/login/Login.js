@@ -11,7 +11,7 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, GError] = useSignInWithGoogle(auth);
 
   const onSubmit = (data) => {
     console.log(data);

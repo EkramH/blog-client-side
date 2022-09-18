@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { BsArrowReturnRight } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { BlogContext } from "../../App";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([]);
+  // const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useContext(BlogContext);
+
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("data.json")
       .then((res) => res.json())
@@ -35,7 +40,10 @@ const Home = () => {
                   {blog.blog.length < 200
                     ? blog.blog.length
                     : blog.blog.slice(0, 200)}
-                  <span className="btn btn-xs font-medium bg-blackCoral mx-1">
+                  <span
+                    className="btn btn-xs font-medium bg-blackCoral mx-1"
+                    onClick={() => navigate(`/blog/${blog._id}`)}
+                  >
                     ... Read More
                   </span>
                 </p>
