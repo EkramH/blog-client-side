@@ -1,17 +1,13 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -23,9 +19,33 @@ const Login = () => {
         <div className="card w-96 shadow-xl bg-beauBlue">
           <div className="card-body">
             <h2 className="text-center text-2xl font-bold text-blueYonder">
-              Login
+              Register
             </h2>
             <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="input input-bordered w-full max-w-xs"
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "Name is required!",
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.name?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.name.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text text-blackCoral">Email</span>
@@ -98,20 +118,18 @@ const Login = () => {
                 value="Login"
               />
               <p className="mt-5 text-center">
-                New to Blog?{" "}
+                Already have an account?{" "}
                 <Link
                   className="text-primary underline decoration-solid"
-                  to="/register"
+                  to="/login"
                 >
-                  Create an account.
+                  Login.
                 </Link>
               </p>
             </form>
+
             <div className="divider">OR</div>
-            <button
-              onClick={() => signInWithGoogle()}
-              className="btn btn-outline font-bold"
-            >
+            <button className="btn btn-outline font-bold">
               Continue with Google
             </button>
           </div>
@@ -121,4 +139,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

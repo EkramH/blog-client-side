@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import About from "./pages/About";
 import Video from "./pages/Video";
 import Login from "./pages/login/Login";
+import Register from "./pages/login/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="video" element={<Video />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </div>
   );
